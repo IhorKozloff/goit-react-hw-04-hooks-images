@@ -1,4 +1,5 @@
-// import React, { useEffect} from "react"
+import React, { useEffect} from "react"
+import PropTypes from 'prop-types';
 import { createPortal } from "react-dom";
 import {Backdrop, Content, ModalCloseBtn} from 'components/Modal/Modal.styled';
 
@@ -7,22 +8,21 @@ const modalWindowRoot = document.querySelector('#modal-window-root');
 export const ModalWindow = ({onModalCloseBtn, children}) => {
     
     
-    // useEffect(() => {
+    useEffect(() => {
 
 
-    //     const handleKeyDown = (event) => {
-    //         if(event.code === 'Escape'){
-    //             console.log(event)
-    //             onModalCloseBtn();
-    //         };
-    //     };
+        const handleKeyDown = (event) => {
+            if(event.code === 'Escape'){
+                onModalCloseBtn();
+            };
+        };
 
-    //     window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('keydown', handleKeyDown);
 
-    //     return window.removeEventListener('keydown', handleKeyDown)
-    // },[])
-
-
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+        }
+    },[onModalCloseBtn])
 
 
     return createPortal(
@@ -35,7 +35,12 @@ export const ModalWindow = ({onModalCloseBtn, children}) => {
             </Backdrop>
             
         </>, modalWindowRoot        
-    )
+    );
     
     
+};
+
+
+ModalWindow.propTypes = {
+    onModalCloseBtn: PropTypes.func.isRequired,
 }

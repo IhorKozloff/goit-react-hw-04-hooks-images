@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import {SearchBarHead, FormStyled, FieldStyled, SearchBtn, SearchBtnLabel} from 'components/SearchBar/SearchBar.styled';
 
@@ -40,6 +41,13 @@ export const SearchBar = ({setRequest, setDataToRender, setPage, setSearchingSta
                 </Formik>
             </SearchBarHead>
             
-        )
+        );
     
+};
+
+SearchBar.propTypes = {
+    setRequest: PropTypes.func.isRequired,
+    setDataToRender: PropTypes.func.isRequired, 
+    setPage: PropTypes.func.isRequired, 
+    setSearchingStatus: PropTypes.func,
 }

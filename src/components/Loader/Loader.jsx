@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { LoaderWrapper } from "components/Loader/Loader.styled";
 import { Grid } from  'react-loader-spinner'
 
@@ -13,5 +15,9 @@ export const Loader = ({status}) => {
             }
         </>
         
-    )
+    );
+};
+
+Loader.propTypes = {
+    status: PropTypes.bool.isRequired,
 }

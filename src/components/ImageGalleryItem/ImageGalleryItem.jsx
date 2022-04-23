@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import PropTypes from 'prop-types';
 import {GalleryItem, ImageGalleryItemImage} from 'components/ImageGalleryItem/ImageGalleryItem.styled';
 import {ModalWindow} from 'components/Modal/Modal';
 
@@ -28,3 +29,10 @@ export const ImageGalleryItem = ({id, imageMin, imageMax}) => {
         
     );
 };
+
+
+ImageGalleryItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    imageMin: PropTypes.string.isRequired, 
+    imageMax: PropTypes.string.isRequired,
+}
