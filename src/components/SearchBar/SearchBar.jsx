@@ -17,6 +17,7 @@ export const SearchBar = ({setRequest}) => {
                                                                 return;
                                                             };
                                                             setRequest(imageName);
+                                                            
                                                             actions.resetForm();
                                                         }}>
 
