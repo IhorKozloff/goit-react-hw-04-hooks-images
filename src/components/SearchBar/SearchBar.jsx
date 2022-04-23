@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import {SearchBarHead, FormStyled, FieldStyled, SearchBtn, SearchBtnLabel} from 'components/SearchBar/SearchBar.styled';
 
 
-export const SearchBar = ({setRequest}) => {
+export const SearchBar = ({setRequest, setDataToRender, setPage, setSearchingStatus}) => {
 
    
         return (
@@ -17,7 +17,9 @@ export const SearchBar = ({setRequest}) => {
                                                                 return;
                                                             };
                                                             setRequest(imageName);
-                                                            
+                                                            setDataToRender([]);
+                                                            setPage(1);
+                                                            setSearchingStatus(undefined);
                                                             actions.resetForm();
                                                         }}>
 
